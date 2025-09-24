@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Farah Building Material</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --gray: #95a5a6;
+            --light-gray: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info span {
+            margin-right: 20px;
+        }
+
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--accent);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 7px 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #c0392b;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .action-item {
+            margin-left: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .action-item i {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .action-item span {
+            display: block;
+            font-size: 12px;
+            color: var(--dark);
+        }
+
+        .cart-count {
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        nav {
+            background-color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background: white;
+            box-shadow: var(--shadow);
+            min-width: 200px;
+            display: none;
+            z-index: 100;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark);
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .breadcrumb-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .breadcrumb-content span {
+            margin: 0 10px;
+            color: var(--gray);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 50px 0;
+        }
+
+        .products-container {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Filters Sidebar */
+        .filters-sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        .filter-widget {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .filter-widget h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-options {
+            list-style: none;
+        }
+
+        .filter-options li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-options input {
+            margin-right: 10px;
+        }
+
+        .filter-options label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .price-range input {
+            width: 45%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+        }
+
+        .rating-stars {
+            color: var(--warning);
+            margin-left: auto;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            flex: 1;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .products-sorting {
+            display: flex;
+            align-items: center;
+        }
+
+        .products-sorting select {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            background: white;
+            margin-left: 10px;
+        }
+
+        .view-options {
+            display: flex;
+            margin-left: 20px;
+        }
+
+        .view-option {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1px solid #ddd;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: var(--radius);
+        }
+
+        .view-option.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .product-badge.new {
+            background: var(--success);
+        }
+
+        .product-badge.sale {
+            background: var(--warning);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover .product-actions {
+            opacity: 1;
+        }
+
+        .product-action {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .product-action:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        .original-price {
+            font-size: 16px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .product-rating {
+            color: var(--warning);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .rating-count {
+            color: var(--gray);
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .product-actions-bottom {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 8px 15px;
+            font-size: 12px;
+        }
+
+        .btn-light {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .btn-light:hover {
+            background: #e0e0e0;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .pagination a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 5px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .pagination a:hover, .pagination a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Quick View Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-body {
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .modal-image {
+            flex: 1;
+        }
+
+        .modal-image img {
+            width: 100%;
+            border-radius: var(--radius);
+        }
+
+        .modal-info {
+            flex: 1;
+        }
+
+        .modal-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .modal-price {
+            font-size: 24px;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--light-gray);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 36px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+        }
+
+        .product-details-list {
+            list-style: none;
+        }
+
+        .product-details-list li {
+            margin-bottom: 8px;
+            display: flex;
+        }
+
+        .product-details-list li strong {
+            width: 120px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-links i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                max-width: 100%;
+                margin: 15px 0 0;
+            }
+            
+            .products-container {
+                flex-direction: column;
+            }
+            
+            .filters-sidebar {
+                width: 100%;
+                order: 2;
+            }
+            
+            .modal-body {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: rgba(0, 0, 0, 0.1);
+            }
+            
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .products-sorting {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                margin-bottom: 10px;
+            }
+            
+            .product-actions-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn-sm {
+                width: 100%;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +2519-555-66-999</span>
+                    <span><i class="fas fa-envelope"></i> mawliit.mahamet52@gmail.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Jigjiga City, Somali Regional State, Ethiopia</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/newboymawliid.mohamed?mibextid=wwXIfr&mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+252673432491"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/somali.programmer?igsh=MWpucGVxc3Q5ZmIxOA%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/mawliit-mahamet-479609233"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="container">
+            <div class="main-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-text">
+                            <h1>Farah Building Material</h1>
+                            <p>Quality Construction Materials</p>
+                        </div>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search for products...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="action-item">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </div>
+                        <div class="action-item cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Cart</span>
+                            <div class="cart-count">3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container">
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="products.html" class="active">Products <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Cement & Concrete</a></li>
+                            <li><a href="#">Steel & Metals</a></li>
+                            <li><a href="#">Bricks & Blocks</a></li>
+                            <li><a href="#">Plumbing Materials</a></li>
+                            <li><a href="#">Electrical Materials</a></li>
+                            <li><a href="#">Paints & Chemicals</a></li>
+                            <li><a href="#">Tools & Hardware</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="serveces.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="products.html">Products</a>
+                <span>/</span>
+                <span>All Products</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Discover our wide range of high-quality building materials for all your construction needs</p>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-container">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-widget">
+                        <h3>Categories</h3>
+                        <ul class="filter-options">
+                            <li>
+                                <label>
+                                    <input type="checkbox" checked> 
+                                    Cement & Concrete
+                                    <span class="product-count">(24)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    Steel & Metals
+                                    <span class="product-count">(18)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    Bricks & Blocks
+                                    <span class="product-count">(15)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    Plumbing Materials
+                                    <span class="product-count">(32)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    Electrical Materials
+                                    <span class="product-count">(27)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    Paints & Chemicals
+                                    <span class="product-count">(21)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    Tools & Hardware
+                                    <span class="product-count">(45)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-widget">
+                        <h3>Price Range</h3>
+                        <div class="price-range">
+                            <input type="number" placeholder="Min" value="0">
+                            <span>to</span>
+                            <input type="number" placeholder="Max" value="10000">
+                        </div>
+                        <button class="btn btn-sm" style="width: 100%;">Apply Filter</button>
+                    </div>
+
+                    <div class="filter-widget">
+                        <h3>Brands</h3>
+                        <ul class="filter-options">
+                            <li><label><input type="checkbox"> Dangote Cement</label></li>
+                            <li><label><input type="checkbox"> National Steel</label></li>
+                            <li><label><input type="checkbox"> Master Paints</label></li>
+                            <li><label><input type="checkbox"> Aquaflow Pipes</label></li>
+                            <li><label><input type="checkbox"> PowerPlus Electrical</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-widget">
+                        <h3>Customer Rating</h3>
+                        <ul class="filter-options">
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>(125)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span>(89)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox"> 
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span>(42)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="products-grid">
+                    <div class="products-header">
+                        <p>Showing 1-12 of 186 products</p>
+                        <div class="products-sorting">
+                            <span>Sort by:</span>
+                            <select>
+                                <option>Default</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Name: A to Z</option>
+                                <option>Name: Z to A</option>
+                                <option>Highest Rated</option>
+                            </select>
+                            <div class="view-options">
+                                <div class="view-option active"><i class="fas fa-th"></i></div>
+                                <div class="view-option"><i class="fas fa-list"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="products">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="product-badge new">New</div>
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af24?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portland Cement">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(1)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Cement</div>
+                                <h3 class="product-title">Portland Cement 50kg</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 850.00</span>
+                                    <span class="original-price">ETB 950.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-count">(24)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="product-badge sale">Sale</div>
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="TMT Steel Bars">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(2)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Steel</div>
+                                <h3 class="product-title">TMT Steel Bars 12mm</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 1,250.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="rating-count">(18)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="PVC Pipes">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(3)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Plumbing</div>
+                                <h3 class="product-title">PVC Pipes 1-inch</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 450.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-count">(32)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1567539760796-38d3b8fde77b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Interior Paint">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(4)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Paints</div>
+                                <h3 class="product-title">Interior Wall Paint 4L</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 1,150.00</span>
+                                    <span class="original-price">ETB 1,350.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="rating-count">(15)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card">
+                            <div class="product-badge new">New</div>
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1576153192396-3fcf4b7ddc0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Electrical Wires">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(5)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Electrical</div>
+                                <h3 class="product-title">Copper Electrical Wires</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 2,350.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-count">(27)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1581093458799-1049515d42c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Clay Bricks">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(6)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Bricks</div>
+                                <h3 class="product-title">Red Clay Bricks (100pcs)</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 1,850.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="rating-count">(12)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="product-card">
+                            <div class="product-badge sale">Sale</div>
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1581093459667-cfef6e0dab2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Power Tools">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(7)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Tools</div>
+                                <h3 class="product-title">Heavy Duty Power Drill</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 3,250.00</span>
+                                    <span class="original-price">ETB 3,850.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-count">(38)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1581092589493-8296ce355b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Water Tanks">
+                                <div class="product-actions">
+                                    <div class="product-action" title="Add to Wishlist"><i class="far fa-heart"></i></div>
+                                    <div class="product-action" title="Quick View" onclick="openModal(8)"><i class="far fa-eye"></i></div>
+                                    <div class="product-action" title="Compare"><i class="fas fa-exchange-alt"></i></div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Plumbing</div>
+                                <h3 class="product-title">Plastic Water Tank 1000L</h3>
+                                <div class="product-price">
+                                    <span class="current-price">ETB 4,500.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="rating-count">(21)</span>
+                                </div>
+                                <div class="product-actions-bottom">
+                                    <button class="btn btn-sm">Add to Cart</button>
+                                    <button class="btn btn-sm btn-outline">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Product Image">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle">Product Title</h2>
+                    <div class="modal-price" id="modalPrice">ETB 0.00</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span class="rating-count">(24)</span>
+                    </div>
+                    <p class="modal-description" id="modalDescription">
+                        This is a sample product description. It provides details about the product features, specifications, and benefits.
+                    </p>
+                    
+                    <div class="quantity-selector">
+                        <span>Quantity:</span>
+                        <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" id="quantity">
+                        <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="btn">Add to Cart</button>
+                        <button class="btn btn-outline">Add to Wishlist</button>
+                    </div>
+                    
+                    <ul class="product-details-list">
+                        <li><strong>Category:</strong> <span id="modalCategory">Cement</span></li>
+                        <li><strong>Brand:</strong> <span id="modalBrand">Dangote</span></li>
+                        <li><strong>SKU:</strong> <span id="modalSKU">FBM-001</span></li>
+                        <li><strong>Availability:</strong> <span id="modalStock" style="color: var(--success);">In Stock</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Farah Building Material</h3>
+                    <p>Your trusted partner for quality construction materials in Jigjiga City and the Somali Regional State.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.facebook.com/newboymawliid.mohamed?mibextid=wwXIfr&mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/+252673432491"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/somali.programmer?igsh=MWpucGVxc3Q5ZmIxOA%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/mawliit-mahamet-479609233"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="serveces.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Product Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cement & Concrete</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Steel & Metals</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Bricks & Blocks</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Plumbing Materials</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Electrical Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Jigjiga City, Somali Regional State, Ethiopia</li>
+                        <li><i class="fas fa-phone"></i> +2519-555-66-999</li>
+                        <li><i class="fas fa-envelope"></i> mawliit.mahamet52@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8:00AM - 6:00PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2023 Farah Building Material. All Rights Reserved. | Designed by <span style="color: var(--accent);">somali-programmer</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Product Data for Modal
+        const products = {
+            1: {
+                title: "Portland Cement 50kg",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af24?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 850.00",
+                category: "Cement & Concrete",
+                brand: "Dangote Cement",
+                sku: "FBM-CEM-001",
+                description: "High-quality Portland cement suitable for all general construction purposes. This cement provides excellent strength and durability for concrete structures."
+            },
+            2: {
+                title: "TMT Steel Bars 12mm",
+                image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 1,250.00",
+                category: "Steel & Metals",
+                brand: "National Steel",
+                sku: "FBM-STL-012",
+                description: "Thermo-Mechanically Treated (TMT) steel bars with excellent strength and ductility. Perfect for reinforced concrete structures in construction."
+            },
+            3: {
+                title: "PVC Pipes 1-inch",
+                image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 450.00",
+                category: "Plumbing Materials",
+                brand: "Aquaflow",
+                sku: "FBM-PVC-001",
+                description: "High-quality PVC pipes suitable for water supply and drainage systems. These pipes are corrosion-resistant and have a long service life."
+            },
+            4: {
+                title: "Interior Wall Paint 4L",
+                image: "https://images.unsplash.com/photo-1567539760796-38d3b8fde77b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 1,150.00",
+                category: "Paints & Chemicals",
+                brand: "Master Paints",
+                sku: "FBM-PNT-004",
+                description: "Premium interior wall paint with excellent coverage and washability. Available in a wide range of colors to suit any interior design."
+            },
+            5: {
+                title: "Copper Electrical Wires",
+                image: "https://images.unsplash.com/photo-1576153192396-3fcf4b7ddc0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 2,350.00",
+                category: "Electrical Materials",
+                brand: "PowerPlus",
+                sku: "FBM-ELC-005",
+                description: "High-conductivity copper electrical wires with PVC insulation. Suitable for residential and commercial electrical installations."
+            },
+            6: {
+                title: "Red Clay Bricks (100pcs)",
+                image: "https://images.unsplash.com/photo-1581093458799-1049515d42c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 1,850.00",
+                category: "Bricks & Blocks",
+                brand: "ClayMaster",
+                sku: "FBM-BRK-100",
+                description: "High-quality red clay bricks with uniform size and excellent compressive strength. Ideal for building walls and other masonry structures."
+            },
+            7: {
+                title: "Heavy Duty Power Drill",
+                image: "https://images.unsplash.com/photo-1581093459667-cfef6e0dab2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 3,250.00",
+                category: "Tools & Hardware",
+                brand: "ProTool",
+                sku: "FBM-TOL-007",
+                description: "Professional heavy-duty power drill with variable speed and hammer function. Perfect for drilling in concrete, wood, and metal."
+            },
+            8: {
+                title: "Plastic Water Tank 1000L",
+                image: "https://images.unsplash.com/photo-1581092589493-8296ce355b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                price: "ETB 4,500.00",
+                category: "Plumbing Materials",
+                brand: "AquaStore",
+                sku: "FBM-TNK-1000",
+                description: "Durable plastic water tank with UV protection. Ideal for storing drinking water and other liquids. Comes with necessary fittings."
+            }
+        };
+
+        // Modal Functions
+        function openModal(productId) {
+            const product = products[productId];
+            document.getElementById('modalImage').src = product.image;
+            document.getElementById('modalTitle').textContent = product.title;
+            document.getElementById('modalPrice').textContent = product.price;
+            document.getElementById('modalDescription').textContent = product.description;
+            document.getElementById('modalCategory').textContent = product.category;
+            document.getElementById('modalBrand').textContent = product.brand;
+            document.getElementById('modalSKU').textContent = product.sku;
+            
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Quantity Functions
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Add to Cart Functionality
+        document.querySelectorAll('.btn-sm').forEach(button => {
+            button.addEventListener('click', function() {
+                if(this.textContent === 'Add to Cart') {
+                    const countElement = document.querySelector('.cart-count');
+                    let count = parseInt(countElement.textContent);
+                    countElement.textContent = count + 1;
+                    
+                    this.textContent = 'Added!';
+                    this.style.backgroundColor = '#27ae60';
+                    
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                }
+            });
+        });
+
+        // View Options Toggle
+        document.querySelectorAll('.view-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.view-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                if (this.querySelector('i').classList.contains('fa-list')) {
+                    document.querySelector('.products').style.gridTemplateColumns = 'repeat(auto-fill, minmax(100%, 1fr))';
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        card.style.display = 'flex';
+                        card.querySelector('.product-image').style.flex = '0 0 200px';
+                        card.querySelector('.product-image').style.height = 'auto';
+                        card.querySelector('.product-info').style.flex = '1';
+                    });
+                } else {
+                    document.querySelector('.products').style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        card.style.display = 'block';
+                        card.querySelector('.product-image').style.flex = 'none';
+                        card.querySelector('.product-image').style.height = '200px';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
